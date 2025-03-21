@@ -4,11 +4,12 @@ const reviewSchema = new mongoose.Schema(
     {
         bookid: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: Books
+            ref: "Books"
         },
         userid:{
             type: mongoose.Schema.Types.ObjectId,
-            ref: Users
+            ref: "Users",
+            index: true
         },
         rating:{
             type: Number,
