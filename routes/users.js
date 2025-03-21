@@ -38,7 +38,7 @@ userRouter.get('/', async(req, res) => {
 userRouter.get('/:id', async(req, res) => {
     try {
         const user = await User.findById(req.params.id);
-        res.status(201).json(user);
+        res.json(user).status(201);
     } catch (e) {
       console.error(e);
       res.status(400).json({ message: e.message });
@@ -63,4 +63,34 @@ userRouter.patch("/:id", async(req,res) =>{
   }
 })
 
+/**
+ * POST -- create user
+ */
+
+userRouter.post("/", async(req, res) =>{
+  try{
+    const user = new User(req.body);
+    await user.save();
+    res.json(user).status(201);    
+  }catch(error) {
+    console.error(error);
+    res.send(error.message).status(500);
+  }
+})
+
+/**
+ * DELETE user by id
+ */
+userRouter.delete("/:id", async(req,res) =>{
+  try{
+    const deletedUser= await User.findByIdAndDelete(req.params.id)
+    if(!deletedUser){
+      return res.send("User not found");
+    }
+    res.send("User deleted succesfully")
+  }catch(error){
+    console.error(error);
+    res.send(error.message)
+  }
+})
 export default userRouter;

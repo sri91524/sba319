@@ -1,10 +1,16 @@
-# Backend API Template
+# React + Vite
 
-## Instructions
+# RTT-60-2024 Class Repo
 
-1. clone the repo `git clone <repo-url> <new-project-name>`
-2. cd into your new project folder and run `npm i`
-3. Remove previous git repo `rm -rf .git`
-4. Create a new `.env` file and add the 'MONGODB_URI'
-5. Update db name in `.env`
-6. Run the app with: `npm run dev` # backend-template
+## Description
+SBA 319: 
+MongoDB database application
+
+### Technologies
+express, mongoose, mongodb
+
+#### Functionalities 
+    REST API for GET, POST, PATCH, DELETE was created to access users fro mongodb
+    3 data collections created    
+
+
