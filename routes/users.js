@@ -64,21 +64,6 @@ userRouter.patch("/:id", async(req,res) =>{
 })
 
 /**
- * POST -- create user
- */
-
-userRouter.post("/", async(req, res) =>{
-  try{
-    const user = new User(req.body);
-    await user.save();
-    res.json(user).status(201);    
-  }catch(error) {
-    console.error(error);
-    res.send(error.message).status(500);
-  }
-})
-
-/**
  * DELETE user by id
  */
 userRouter.delete("/:id", async(req,res) =>{
